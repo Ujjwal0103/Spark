@@ -2,6 +2,11 @@
 
 A full-stack e-commerce application built with React.js and Node.js, featuring user authentication, product management, and shopping cart functionality.
 
+## Project Demo
+
+Check out the working demo of this project on YouTube:
+[E-Commerce Web Application Demo]([https://youtu.be/your_video_id](https://youtu.be/4IARap0N0E4))
+
 ## Features
 
 - User Authentication (Login/Register)
