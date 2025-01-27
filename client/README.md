@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# E-Commerce Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack e-commerce application built with React.js and Node.js, featuring user authentication, product management, and shopping cart functionality.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User Authentication (Login/Register)
+- Product Listing and Management
+- Shopping Cart
+- Admin Dashboard
+- Image Upload with Cloudinary
+- Responsive Design
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- React Router DOM
+- Axios
+- Context API for State Management
 
-### `npm test`
+### Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT Authentication
+- Cloudinary for Image Storage
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+├── client/ # Frontend React application
+│ ├── public/ # Static files
+│ └── src/
+│ ├── api/ # API integration
+│ ├── components/ # React components
+│ └── GlobalState.js # Global state management
+└── server/ # Backend Node.js application
+├── controllers/ # Request handlers
+├── middleware/ # Custom middleware
+├── models/ # Database models
+└── routes/ # API routes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js
+- MongoDB
+- Cloudinary account
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository
+2. Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+# Install server dependencies
+cd server
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Install client dependencies
+cd ../client
+npm install
+```
 
-## Learn More
+3. Create a `.env` file in the server directory with:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+MONGODB_URL=your_mongodb_url
+ACCESS_TOKEN_SECRET=your_access_token_secret
+REFRESH_TOKEN_SECRET=your_refresh_token_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Running the Application
 
-### Code Splitting
+1. Start the server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd server
+npm run dev
+```
 
-### Analyzing the Bundle Size
+2. Start the client:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+cd client
+npm start
+```
 
-### Making a Progressive Web App
+The application will be available at `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API Endpoints
 
-### Advanced Configuration
+### Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- POST `/user/register` - Register new user
+- POST `/user/login` - User login
+- GET `/user/logout` - User logout
+- GET `/user/refresh_token` - Refresh authentication token
 
-### Deployment
+### Products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- GET `/api/products` - Get all products
+- POST `/api/products` - Create new product (Admin only)
+- DELETE `/api/products/:id` - Delete product (Admin only)
+- PUT `/api/products/:id` - Update product (Admin only)
 
-### `npm run build` fails to minify
+### Categories
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GET `/api/category` - Get all categories
+- POST `/api/category` - Create category (Admin only)
+- DELETE `/api/category/:id` - Delete category (Admin only)
+- PUT `/api/category/:id` - Update category (Admin only)
+
+## Security Features
+
+- Password Hashing with Bcrypt
+- JWT Authentication
+- HTTP-Only Cookies
+- Protected Routes
+- Admin Authorization
+
+## License
+
+This project is licensed under the MIT License.
